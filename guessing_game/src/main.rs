@@ -14,15 +14,13 @@ fn main() {
 
         let guess: u32 = guess.trim().parse().expect("Error with parse");
 
-        let message = match guess.cmp(&correct) {
-            Ordering::Greater => "You guessed too high, Cheech!",
-            Ordering::Less => "You have guessed too low, Cretin",
+        match guess.cmp(&correct) {
+            Ordering::Greater => println!("You guessed too high, Cheech!"),
+            Ordering::Less => println!("You have guessed too low, Cretin"),
             Ordering::Equal => { 
                 println!("You guessed the Perfectly"); 
                 break;
             },
         };
-
-        println!("{message}");
     }
 }
