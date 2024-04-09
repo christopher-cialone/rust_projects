@@ -14,10 +14,12 @@ fn main() {
 
     let guess: u32 = guess.trim().parse().expect("Error with parse");
 
-    if correct == guess {
-        println!("You guessed the correct number!");
-    }  else {
-        println!("You have guessed incorrectly, my good sir")
+    if correct < guess {
+        println!("You guessed too high, Cheech!");
+    }  else if correct > guess {
+        println!("You have guessed too low, Cretin");
+    } else {
+        println!("You guessed the Perfectly");
     }
 
    
