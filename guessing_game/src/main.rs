@@ -1,5 +1,5 @@
-use std::io;
 use rand::Rng;
+use std::io;
 fn main() {
     let correct = rand::thread_rng().gen_range(1..=10);
     println!("correct: {correct}");
@@ -14,13 +14,13 @@ fn main() {
 
     let guess: u32 = guess.trim().parse().expect("Error with parse");
 
-    if correct < guess {
-        println!("You guessed too high, Cheech!");
-    }  else if correct > guess {
-        println!("You have guessed too low, Cretin");
+    let mut message = if correct < guess {
+        String::from("You guessed too high, Cheech!")
+    } else if correct > guess {
+        String::from("You have guessed too low, Cretin")
     } else {
-        println!("You guessed the Perfectly");
-    }
+        String::from("You guessed the Perfectly")
+    };
 
-   
+    println!("{message}");
 }
