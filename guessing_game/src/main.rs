@@ -12,7 +12,13 @@ fn main() {
             .read_line(&mut guess)
             .expect("Failed to read line");
 
-        let guess: u32 = guess.trim().parse().expect("Error with parse");
+        let guess: u32 = match guess.trim().parse() {
+            Ok(num) => num,
+            Err(e) => {
+                println!("Error with parse, try again. {e}");
+                continue;
+            }
+        };
 
         match guess.cmp(&correct) {
             Ordering::Greater => println!("You guessed too high, Cheech!"),
