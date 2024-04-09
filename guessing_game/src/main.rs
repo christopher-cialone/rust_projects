@@ -1,5 +1,5 @@
 use rand::Rng;
-use std::io;
+use std::{cmp::Ordering, io};
 fn main() {
     let correct = rand::thread_rng().gen_range(1..=10);
     println!("correct: {correct}");
@@ -14,13 +14,10 @@ fn main() {
 
     let guess: u32 = guess.trim().parse().expect("Error with parse");
 
-    let mut message = if correct < guess {
-        String::from("You guessed too high, Cheech!")
-    } else if correct > guess {
-        String::from("You have guessed too low, Cretin")
-    } else {
-        String::from("You guessed the Perfectly")
+    let message = match guess.cmp(&correct) {
+        Ordering::Greater => "You guessed too high, Cheech!",
+        Ordering::Less => "You have guessed too low, Cretin",
+        Ordering::Equal => "You guessed the Perfectly", 
     };
-
     println!("{message}");
 }
