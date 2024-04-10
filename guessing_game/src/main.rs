@@ -39,7 +39,7 @@ fn main() {
             Ordering::Greater => println!("You guessed too high, no Bitcoin for you!"),
             Ordering::Less => println!("You have guessed too low, still no Bitcoin"),
             Ordering::Equal => {
-                println!("You guessed the Perfectly - we are owed a Bitcoin");
+                println!("You guessed correctly - we are owed a Bitcoin");
                 guesses_made += 1;
                 if guesses_made < num_guesses {
                     println!("Let's try the next one")
