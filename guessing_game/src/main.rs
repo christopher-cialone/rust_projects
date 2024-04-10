@@ -17,7 +17,6 @@ fn main() {
 
     println!("{correct:?}");
 
-    println!("Guess a number from 1 to 10!");
 
     let mut guesses_made = 0;
 
